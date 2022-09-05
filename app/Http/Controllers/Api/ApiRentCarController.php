@@ -11,9 +11,11 @@ use App\Http\Resources\ReleaseCarResource;
 use App\Http\Requests\Api\ApiRentCarRequest;
 use App\Http\Requests\Api\ApiReleaseCarRequest;
 use Illuminate\Http\Client\HttpClientException;
+use App\Http\Controllers\Interfaces\Api\ApiRentCarControllerInterface;
 
-class ApiRentCarController extends Controller
+class ApiRentCarController extends Controller implements ApiRentCarControllerInterface
 {
+
     /**
      * Регистрация аренды автомобиля пользователем, если это разрешено правилами
      *
@@ -34,7 +36,6 @@ class ApiRentCarController extends Controller
         return new RentCarResource($car);
     }
 
-
     /**
      * Прекращение аренды автомобиля
      *
@@ -44,9 +45,6 @@ class ApiRentCarController extends Controller
     {
         $validated = $request->validated();
 
-        /**
-         * @var Car $car
-         */
         $car = Car::find($validated['car_id']);
 
         if (!$car->users()->count())

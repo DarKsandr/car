@@ -1,0 +1,111 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API documentation",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/rent_car": {
+            "get": {
+                "tags": [
+                    "rent_car"
+                ],
+                "summary": "Регистрация аренды автомобиля пользователем, если это разрешено правилами",
+                "operationId": "d00f37d734ddad166b08bcc1afb2b970",
+                "parameters": [
+                    {
+                        "name": "car_id",
+                        "in": "query",
+                        "description": "Идентификатор автомобиля",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "Идентификатор пользователя",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/api/release_car": {
+            "get": {
+                "tags": [
+                    "rent_car"
+                ],
+                "summary": "Прекращение аренды автомобиля",
+                "operationId": "5ab8a1ba5a02d4dde5bae2ae25d6a9f9",
+                "parameters": [
+                    {
+                        "name": "car_id",
+                        "in": "query",
+                        "description": "Идентификатор автомобиля",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        }
+    }
+}
