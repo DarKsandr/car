@@ -51,3 +51,7 @@ C помощью laravel сделать api для управления спис
    ```
    ./vendor/bin/sail artisan l5-swagger:generate
    ```
+## Тесты
+   ```
+   ./vendor/bin/sail artisan test
+   ```
