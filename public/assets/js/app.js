@@ -10,7 +10,10 @@ async function rent(car_id, user_id){
     if (response.ok){
         resp.innerHTML = json.data.message;
     } else {
-        resp.innerHTML = `Ошибка: ${json.message}`;
+        resp.innerHTML = ``;
+        json.errors.messages.forEach((value, index, array) => {
+            resp.append(`Ошибка ${index + 1}: ${value}`, document.createElement(`br`));
+        })
     }
 }
 
